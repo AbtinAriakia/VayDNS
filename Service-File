@@ -8,7 +8,7 @@ Type=simple
 User=root
 Group=root
 ExecStart=/root/vf/vaydns-server -udp :5300 -privkey-file server.key \
-  -domain t.example.com -upstream 127.0.0.1:8000 -mtu 1232 -record-type TYPE -log-level info
+  -domain t.example.com -upstream 127.0.0.1:8000 -record-type TYPE
 Restart=always
 RestartSec=5
 KillMode=mixed
