@@ -1,0 +1,28 @@
+[Unit]
+Description=VayDNS Tunnel Server
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/root/vf/vaydns-server -udp :5300 -privkey-file server.key \
+  -domain t.example.com -upstream 127.0.0.1:8000 -mtu 1232 -record-type TYPE -log-level info
+Restart=always
+RestartSec=5
+KillMode=mixed
+TimeoutStopSec=5
+
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/
+ReadWritePaths=/root/vf
+PrivateTmp=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+
+[Install]
+WantedBy=multi-user.target
