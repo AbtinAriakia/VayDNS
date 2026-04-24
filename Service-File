@@ -1,31 +1,30 @@
 [Unit]
 Description=VayDNS Tunnel Server
 After=network.target
-Wants=network-online.target
-After=network-online.target
+Wants=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/root/vf
-ExecStart=/root/vf/vaydns-server \
+User=vaydns
+Group=vaydns
+ExecStart=/usr/local/bin/vaydns-server \
     -udp :5300 \
     -domain t.example.com \
     -upstream 127.0.0.1:8000 \
-    -privkey-file /root/vf/server.key \
+    -privkey-file /etc/vaydns/server.key \
     -record-type TYPE
-
-AmbientCapabilities=CAP_NET_BIND_SERVICE
-CapabilityBoundingSet=CAP_NET_BIND_SERVICE
-
 Restart=always
 RestartSec=5
+KillMode=mixed
+TimeoutStopSec=5
+
 NoNewPrivileges=true
 ProtectSystem=strict
-ProtectHome=read-only
+ProtectHome=true
 PrivateTmp=true
-
-StandardOutput=journal
-StandardError=journal
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
 
 [Install]
 WantedBy=multi-user.target
