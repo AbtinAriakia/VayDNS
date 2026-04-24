@@ -6,12 +6,12 @@ Wants=network.target
 [Service]
 Type=simple
 User=root
-WorkingDirectory=/root
+WorkingDirectory=/usr/local/bin
 ExecStart=/usr/local/bin/vaydns-server \
     -udp :5300 \
     -domain t.yourdomain.com \
     -upstream 127.0.0.1:22 \
-    -privkey-file /root/server.key \
+    -privkey-file /etc/vaydns/server.key \
     -mtu 1232 \
     -record-type TYPE \
     -log-level info
