@@ -10,7 +10,6 @@ ExecStart=/usr/local/bin/vaydns-server \
     -domain t.yourdomain.com \
     -upstream 127.0.0.1:22 \
     -privkey-file /etc/vaydns/server.key \
-    -mtu 1232 \
     -record-type TYPE
 Restart=always
 RestartSec=5
