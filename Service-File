@@ -10,11 +10,13 @@ ExecStart=/usr/local/bin/vaydns-server \
     -domain t.example.com \
     -upstream 127.0.0.1:22 \
     -privkey-file /etc/vaydns/server.key \
-    -mtu 1232
-    -record-type TYPE
+    -mtu 1232 \
+    -record-type TYPE \
+    -log-level info
 Restart=on-failure
 RestartSec=5
 NoNewPrivileges=true
+PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
