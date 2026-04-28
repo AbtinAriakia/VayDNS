@@ -1,5 +1,5 @@
 [Unit]
-Description=VayDNS Server Tunnel
+Description=VayDNS Tunnel
 After=network.target
 
 [Service]
@@ -7,10 +7,10 @@ Type=simple
 User=root
 ExecStart=/usr/local/bin/vaydns-server \
     -udp :5300 \
-    -domain t.yourdomain.com \
-    -upstream 127.0.0.1:22 \
+    -domain a.hjp.lol \
+    -upstream 127.0.0.1:25267 \
     -privkey-file /etc/vaydns/server.key \
-    -record-type TYPE
+    -record-type null
 Restart=on-failure
 RestartSec=5
 NoNewPrivileges=true
