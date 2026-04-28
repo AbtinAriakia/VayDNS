@@ -11,14 +11,9 @@ ExecStart=/usr/local/bin/vaydns-server \
     -upstream 127.0.0.1:22 \
     -privkey-file /etc/vaydns/server.key \
     -record-type TYPE
-Restart=always
+Restart=on-failure
 RestartSec=5
-NoNewPrivileges=yes
-ProtectSystem=strict
-PrivateTmp=true
-ProtectKernelTunables=true
-ProtectKernelModules=true
-ProtectControlGroups=true
+NoNewPrivileges=true
 
 [Install]
 WantedBy=multi-user.target
