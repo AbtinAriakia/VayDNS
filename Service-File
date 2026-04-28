@@ -16,6 +16,9 @@ RestartSec=5
 NoNewPrivileges=yes
 ProtectSystem=strict
 PrivateTmp=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
 
 [Install]
 WantedBy=multi-user.target
