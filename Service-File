@@ -6,11 +6,11 @@ After=network.target
 Type=simple
 User=root
 ExecStart=/usr/local/bin/vaydns-server \
-    -udp :6300 \
-    -domain a.hjp.lol \
-    -upstream 127.0.0.1:25267 \
+    -udp :5300 \
+    -domain t.example.com \
+    -upstream 127.0.0.1:22 \
     -privkey-file /etc/vaydns/server.key \
-    -record-type null
+    -record-type TYPE
 Restart=on-failure
 RestartSec=5
 NoNewPrivileges=true
