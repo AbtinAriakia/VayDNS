@@ -6,17 +6,14 @@ After=network.target
 Type=simple
 User=root
 ExecStart=/usr/local/bin/vaydns-server \
-    -udp :5300 \
-    -domain t.example.com \
-    -upstream 127.0.0.1:22 \
+    -udp :6300 \
+    -domain a.hjp.lol \
+    -upstream 127.0.0.1:25267 \
     -privkey-file /etc/vaydns/server.key \
-    -mtu 1232 \
-    -record-type TYPE \
-    -log-level info
+    -record-type null
 Restart=on-failure
 RestartSec=5
 NoNewPrivileges=true
-PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
