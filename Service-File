@@ -4,7 +4,6 @@ After=network.target
 
 [Service]
 Type=simple
-User=root
 ExecStart=/usr/local/bin/vaydns-server \
     -udp :5300 \
     -domain t.example.com \
@@ -12,7 +11,6 @@ ExecStart=/usr/local/bin/vaydns-server \
     -privkey-file /etc/vaydns/server.key \
     -record-type TYPE
 Restart=on-failure
-RestartSec=5
 NoNewPrivileges=true
 
 [Install]
