@@ -12,7 +12,7 @@ ExecStart=/usr/local/bin/vaydns-server \
 Restart=on-failure
 RestartSec=3s
 NoNewPrivileges=true
-LimitNOFILE=1048576
+LimitNOFILE=infinity
 
 [Install]
 WantedBy=multi-user.target
