@@ -9,6 +9,7 @@ ExecStart=/usr/local/bin/vaydns-server \
     -domain t.example.com \
     -upstream 127.0.0.1:22 \
     -privkey-file /etc/vaydns/server.key \
+    -mtu 1452 \
     -record-type TYPE
 Restart=on-failure
 RestartSec=3s
