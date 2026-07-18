@@ -1,8 +1,11 @@
 [Unit]
-Description=VayDNS Tunnel
+Description=VayDNS Tunnel Server
+Documentation=https://github.com/net2share/vaydns
 After=network-online.target
+Wants=network-online.target
 
 [Service]
+Type=simple
 User=root
 ExecStart=/usr/local/bin/vaydns-server \
     -udp :5300 \
@@ -12,7 +15,7 @@ ExecStart=/usr/local/bin/vaydns-server \
     -mtu 1452 \
     -record-type TYPE
 Restart=on-failure
-RestartSec=3s
+RestartSec=5s
 NoNewPrivileges=true
 LimitNOFILE=infinity
 
