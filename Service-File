@@ -2,11 +2,9 @@
 Description=VayDNS Tunnel Server
 Documentation=https://github.com/net2share/vaydns
 After=network-online.target
-Wants=network-online.target
 
 [Service]
 Type=simple
-User=root
 ExecStart=/usr/local/bin/vaydns-server \
     -udp :5300 \
     -domain t.example.com \
