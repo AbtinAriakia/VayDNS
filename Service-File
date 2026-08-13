@@ -13,7 +13,7 @@ ExecStart=/usr/local/bin/vaydns-server \
     -mtu 1452 \
     -record-type TYPE
 Restart=on-failure
-RestartSec=5s
+RestartSec=10s
 NoNewPrivileges=true
 LimitNOFILE=1048576
 
